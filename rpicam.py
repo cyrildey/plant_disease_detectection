@@ -13,4 +13,4 @@ def predict():
 
 while True:
     predict()
-    time.sleep(1)
+    time.sleep(60)
