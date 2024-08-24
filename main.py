@@ -188,7 +188,7 @@ torch.save(model.state_dict() , 'plant_disease_model_1.pt')
 '''
 
 #Load Model
-targets_size = 10
+targets_size = 39
 model = CNN(targets_size)
 model.load_state_dict(torch.load("plant_disease_model_1.pt"))
 model.eval()
