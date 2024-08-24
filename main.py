@@ -11,6 +11,8 @@ from torch.utils.data.sampler import SubsetRandomSampler
 import torch.nn as nn
 import torch.nn.functional as F
 from datetime import datetime
+from PIL import Image
+import torchvision.transforms.functional as TF
 
 print("Importations ok")
 
@@ -233,8 +235,9 @@ transform_index_to_disease = dict(
 '''
 
 data = pd.read_csv("disease_info.csv", encoding="cp1252")
-from PIL import Image
-import torchvision.transforms.functional as TF
+
+''' this section was to use opencv
+
 def single_prediction(frame):
     # Convert the frame to a PIL image
     image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
@@ -251,6 +254,20 @@ def single_prediction(frame):
     
     # Print results
     print("Original : Frame from video")
+    pred_csv = data["disease_name"][index]
+    print(pred_csv)
+    print("index number", index)
+    print("done")
+'''
+def single_prediction(image_path):
+    image = Image.open(image_path)
+    image = image.resize((224, 224))
+    input_data = TF.to_tensor(image)
+    input_data = input_data.view((-1, 3, 224, 224))
+    output = model(input_data)
+    output = output.detach().numpy()
+    index = np.argmax(output)
+    print("Original : ", image_path[12:-4])
     pred_csv = data["disease_name"][index]
     print(pred_csv)
     print("index number", index)
