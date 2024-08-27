@@ -23,17 +23,29 @@ def send_info():
         temp = int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3 # Get Raspberry Pi CPU temp
         index, disease_name = predict()
         
+        '''
         params = urllib.parse.urlencode({'field1': now, 'field2': index, 'field3': disease_name, 'key':key }) 
 
         headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
+        '''
         try:
+            http = urllib.PoolManager()
+            resp = http.request(
+                "POST",
+                "api.thingspeak.com:80",
+                fields={'field1': now, 'field2': index, 'field3': disease_name, 'key':key } #  Add custom form fields
+                )
+
+            print(resp.data)
+            '''
             conn.request("POST", "/update", params, headers)
             response = conn.getresponse()
             print (temp)
             print (response.status, response.reason)
             data = response.read()
             conn.close()
+            '''
         except:
             print ("connection failed")
         break
