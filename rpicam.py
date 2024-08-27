@@ -29,15 +29,17 @@ def send_info():
         headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
         '''
-        try:
-            http = urllib.PoolManager()
-            resp = http.request(
-                "POST",
-                "api.thingspeak.com:80",
-                fields={'field1': now, 'field2': index, 'field3': disease_name, 'key':key } #  Add custom form fields
-                )
+        http = urllib.PoolManager()
+        resp = http.request(
+            "POST",
+            "api.thingspeak.com:80",
+            fields={'field1': now, 'field2': index, 'field3': disease_name, 'key':key } #  Add custom form fields
+            )
 
-            print(resp.data)
+        print(resp.data)
+        
+        try:
+            
             '''
             conn.request("POST", "/update", params, headers)
             response = conn.getresponse()
