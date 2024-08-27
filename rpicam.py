@@ -31,10 +31,11 @@ def send_info():
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
         '''
 
-        url = 'https://api.thingspeak.com/upload'
+        url = 'https://api.thingspeak.com/update'
         data = {"field1": "now", "field2": "index", "field3": "disease_name", "key":key }
         response = requests.post(url, json=data)
 
+        print('This is the result from thingspeak')
         print(response.json())
 
         try:
