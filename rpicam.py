@@ -30,12 +30,12 @@ def send_info():
         try:
             conn.request("POST", "/update", params, headers)
             response = conn.getresponse()
-            print temp
-            print response.status, response.reason
+            print (temp)
+            print (response.status, response.reason)
             data = response.read()
             conn.close()
         except:
-            print "connection failed"
+            print ("connection failed")
         break
 
 if __name__ == "__main__":
