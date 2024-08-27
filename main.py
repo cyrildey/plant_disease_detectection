@@ -272,3 +272,4 @@ def single_prediction(image_path):
     print(pred_csv)
     print("index number", index)
     print("done")
+    return (index,pred_csv)
