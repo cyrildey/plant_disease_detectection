@@ -4,6 +4,7 @@ import time
 import http.client as httplib
 import urllib3 as urllib
 from datetime import datetime
+        import requests
 
 key = "R0VJUFRHZTCF2M75"  # Put your API Key here
 now = datetime.now()
@@ -29,15 +30,13 @@ def send_info():
         headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
         '''
-        http = urllib.PoolManager()
-        resp = http.request(
-            "POST",
-            "api.thingspeak.com:80",
-            fields={'field1': now, 'field2': index, 'field3': disease_name, 'key':key } #  Add custom form fields
-            )
 
-        print(resp.data)
-        
+        url = 'https://api.thingspeak.com/upload'
+        data = {'field1': now, 'field2': index, 'field3': disease_name, 'key':key }
+        response = requests.post(url, json=data)
+
+        print(response.json())
+
         try:
             
             '''
