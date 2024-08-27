@@ -32,7 +32,7 @@ def send_info():
         '''
 
         url = 'https://api.thingspeak.com/update'
-        data = {"field1": "now", "field2": "index", "field3": "disease_name", "key":key }
+        data = {"field1": "now", "field2": index, "field3": disease_name, "key":key }
         response = requests.post(url, json=data)
 
         print('This is the result from thingspeak')
