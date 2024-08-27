@@ -23,6 +23,8 @@ def send_info():
     while True:
         temp = int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3 # Get Raspberry Pi CPU temp
         index, disease_name = predict()
+        disease_name = str(disease_name)
+        index = str(index)
         
         '''
         params = urllib.parse.urlencode({'field1': now, 'field2': index, 'field3': disease_name, 'key':key }) 
