@@ -46,5 +46,6 @@ while True:
 	
 	
   except:
+        print('exception encountered')
         #camera.close()
 
