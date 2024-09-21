@@ -9,6 +9,7 @@ import os
 
 import pyrebase
 
+print('importations done')
 firebaseConfig = {
     'apiKey': "AIzaSyDJu0O_tm2VCB_hqVmmyf3_7LcSgg4ja-M",
   'authDomain': "disease-detection-a1a27.firebaseapp.com",
@@ -23,6 +24,7 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 
 storage = firebase.storage()
+print('firebase connected')
 
 #camera = PiCamera()
 
@@ -44,5 +46,5 @@ while True:
 	
 	
   except:
-        camera.close()
+        #camera.close()
 
