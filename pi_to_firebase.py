@@ -24,7 +24,7 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 
 storage = firebase.storage()
-print('firebase connected')
+print('firebase connected') 
 
 #camera = PiCamera()
 
@@ -43,6 +43,9 @@ while True:
         os.remove(name)
         print("File Removed")
         sleep(2)
+    else: 
+        print('not GPIO.input(10) == GPIO.HIGH')
+
 	
 	
   except:
