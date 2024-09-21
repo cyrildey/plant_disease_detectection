@@ -3,7 +3,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD) 
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 from datetime import datetime
-from picamera import PiCamera
+from picamera2 import PiCamera
 from time import sleep
 import os
 
