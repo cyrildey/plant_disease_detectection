@@ -3,7 +3,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD) 
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 from datetime import datetime
-from picamera2 import PiCamera
+#from picamera import PiCamera
 from time import sleep
 import os
 
@@ -24,7 +24,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 
 storage = firebase.storage()
 
-camera = PiCamera()
+#camera = PiCamera()
 
 while True: 
   try:
@@ -33,7 +33,8 @@ while True:
         now = datetime.now()
         dt = now.strftime("%d%m%Y%H:%M:%S")
         name = dt+".jpg"
-        camera.capture(name)
+        #camera.capture(name)
+        os.system("rpicam-still -o " + name)
         print(name+" saved")
         storage.child(name).put(name)
         print("Image sent")
