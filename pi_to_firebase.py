@@ -30,24 +30,20 @@ print('firebase connected')
 
 while True: 
   try:
-    if GPIO.input(10) == GPIO.HIGH:
-        print("pushed")
-        now = datetime.now()
-        dt = now.strftime("%d%m%Y%H:%M:%S")
-        name = dt+".jpg"
-        #camera.capture(name)
-        os.system("rpicam-still -o " + name)
-        print(name+" saved")
-        storage.child(name).put(name)
-        print("Image sent")
-        os.remove(name)
-        print("File Removed")
-        sleep(2)
-    else: 
-        print('not GPIO.input(10) == GPIO.HIGH')
-
-	
-	
+    #if GPIO.input(10) == GPIO.HIGH:
+    print("pushed")
+    now = datetime.now()
+    dt = now.strftime("%d%m%Y%H:%M:%S")
+    name = dt+".jpg"
+    #camera.capture(name)
+    os.system("rpicam-still -o " + name)
+    print(name+" saved")
+    storage.child(name).put(name)
+    print("Image sent")
+    os.remove(name)
+    print("File Removed")
+    sleep(2)
+    
   except:
         print('exception encountered')
         #camera.close()
