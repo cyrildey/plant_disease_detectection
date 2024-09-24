@@ -10,10 +10,7 @@ import pyrebase
 print('importations done')
 
 key = "R0VJUFRHZTCF2M75"  # Put your API Key here
-now = datetime.now()
-dt = now.strftime("%d%m%Y%H:%M:%S")
-image_name = dt+".jpg"
-image_path = "./captures/" + image_name
+
 
 
 # put the firebase comfig here
@@ -42,6 +39,10 @@ def predict():
 
 
 def send_info():
+        now = datetime.now()
+        dt = now.strftime("%d%m%Y%H:%M:%S")
+        image_name = dt+".jpg"
+        image_path = "./captures/" + image_name
         index, disease_name = predict()
         disease_name = str(disease_name)
         index = str(index)
