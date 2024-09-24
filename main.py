@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import cv2
+#import cv2
 # Torch
 import torch
 from torchvision import datasets, transforms # datsets  , transforms
