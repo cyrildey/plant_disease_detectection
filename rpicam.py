@@ -40,7 +40,7 @@ def predict():
 
 def send_info():
         
-        index, disease_name = predict()
+        index, disease_name,disease_description = predict()
         disease_name = str(disease_name)
         index = str(index)
 
@@ -50,7 +50,7 @@ def send_info():
 
         # send data to thinkspeak
         url = 'https://api.thingspeak.com/update'
-        data = {"field1": image_name, "field2": index, "field3": disease_name, "key":key }
+        data = {"field1": image_name, "field2": index, "field3": disease_name, "field4":disease_description, "key":key }
         response = requests.post(url, json=data)
         print('This is the result from thingspeak')
         print(response.json())
