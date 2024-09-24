@@ -269,7 +269,7 @@ def single_prediction(image_path):
     index = np.argmax(output)
     print("Original : ", image_path[12:-4])
     pred_csv = data["disease_name"][index]
-    pred_desc = data["disease_description"][index]
+    pred_desc = data["description"][index]
     print(pred_csv)
     print("index number", index)
     print("done")
