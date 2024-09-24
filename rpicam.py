@@ -42,7 +42,6 @@ def predict():
 
 
 def send_info():
-    while True:
         index, disease_name = predict()
         disease_name = str(disease_name)
         index = str(index)
