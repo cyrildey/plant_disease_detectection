@@ -48,7 +48,7 @@ def send_info():
         index = str(index)
 
         #send data to firebase
-        storage.child(image_name).put(image_name)
+        storage.child(image_name).put(image_path)
         print('image sent to firebase')
 
         # send data to thinkspeak
