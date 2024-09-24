@@ -39,10 +39,7 @@ def predict():
 
 
 def send_info():
-        now = datetime.now()
-        dt = now.strftime("%d%m%Y%H:%M:%S")
-        image_name = dt+".jpg"
-        image_path = "./captures/" + image_name
+        
         index, disease_name = predict()
         disease_name = str(disease_name)
         index = str(index)
@@ -61,6 +58,10 @@ def send_info():
 
 if __name__ == "__main__":
         while True:
+                now = datetime.now()
+                dt = now.strftime("%d%m%Y%H:%M:%S")
+                image_name = dt+".jpg"
+                image_path = "./captures/" + image_name
                 send_info()
                 time.sleep(60)
  
